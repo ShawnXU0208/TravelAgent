@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+
+<head>
+  <title>Contact us</title>
+  <meta name="description" content="provide ways to contact us"/>
+  <meta name="keywords" content="email, phone, message"/>
+  <meta name="author" content="Our names"/> 
+  
+  
+  <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Lora|Open+Sans" rel="stylesheet"/>
+  <link href = "style/style.css" rel = "stylesheet"/>
+  
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" type="text/javascript"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
+  
+  <script src="http://maps.googleapis.com/maps/api/js" type="text/javascript"></script>
+  
+  <script type="text/javascript">	
+	  // create a function to initialzise the google map
+	  function initialise_map(){
+		  //create an object to dfine map's property
+		  var map_property = {
+			  center: new google.maps.LatLng(50, 0),
+			  zoom: 7,
+			  mapTypeId: google.maps.MapTypeId.ROADMAP
+		  };
+		  
+		  //create and map object
+		  var google_map = new google.maps.Map(document.getElementById("google_map"), map_property);
+	  }
+	  
+	  //add and evnt listner to load the map
+	  google.maps.event.addDomListener(window, 'load', initialise_map);
+	  
+  </script>
+  
+
+	<script type="text/javascript">
+		function formValidate() {
+			var f_name = document.forms["contact_form"]["fname"].value;
+			var l_name = document.forms["contact_form"]["lname"].value;
+			var phone = document.forms["contact_form"]["phone"].value;
+			var email = document.forms["contact_form"]["email"].value;
+			
+			if (f_name == "") {
+				alert("Please enter your first name.");
+				return false;
+			} else if (l_name == "") {
+				alert("Please enter your last name.");
+				return false;
+			} else if (phone == "") {
+				alert("Please enter your phone number.");
+				return false;
+			} else if (email == "") {
+				alert("Please enter your email address.");
+				return false;
+			} else {
+				alert("Thank you for your message!");
+				return true;
+			}
+
+
+		}
+	</script>
+</head>
+
+<body class = "body">
+	
+  <!-- A flowbox is used for layout the header-->
+  <div class = "flexbox_head_container">
+	  
+	  <!--insert logo image-->
+	  <div class = "flexbox_head_item1">
+		  <a href = "homepage.php">
+		  <img src = "picture/logo.png" alt = "logo"/>
+		  </a>
+	  </div>
+	  
+	  <!--create the navigation list-->
+	  <div class = "flexbox_head_item2">
+
+		  <ul>
+			  <li> <a href = "homepage.php">HOME</a> </li>
+			  <li> <a href = "about.htm">ABOUT</a> </li>
+			  <li> <a href = "contact.htm">CONTACT</a> </li>
+			  <li> <a href = "service.htm">SERVICE</a> </li>
+			  <li> <a href = "booking.php">BOOKING</a> </li>
+		  </ul>
+
+	  </div>
+  
+  </div>
+ 
+  
+  
+  <div id = "contact_section1">
+	  
+	  <img src = "picture/yellow-mountains.jpg" alt = "yellow mountains"/>
+	  
+	  <div id = "top_text"> WHY NOT CONTACT US </div>
+	  <div id = "bottom_text"> OR LEAVE US A MESSAGE </div>
+	  
+	  <div class = "flexbox_contact_section1_container">
+		  
+		  <div class = "flexbox_contact_section1_item1">
+				  <p>
+					  <span class = "title">Phone:</span>
+					  <span class = "content">03 333 555</span>
+				  </p>
+				  
+				  <p>
+					  <span class = "title">Fax:</span>
+					  <span class = "content">03 222 111</span>
+				  </p>
+				  
+				  <p>
+					  <span class = "title">Email:</span>
+					  <span class = "content">customerservice@travelbook.com</span>
+				  </p>
+				  
+				  <p>
+					  <span class = "title">Office address</span><br/>
+					  <span class = "content">31 random street <br/>Anywhere <br/>NZ 8022 </span>
+				  </p>
+		  </div>
+		  
+		  <div class = "flexbox_contact_section1_item2">
+			  <div id = "google_map" style = "width: 500px; height: 380px;"></div>
+		  </div>
+			  
+	  </div>
+	  
+  </div>  
+  
+  <div id = "contact_section2"> 
+	 <div id = "contact_section2_text">
+		 <p>
+			Fill out the form below to contact us about any questions or queries you have, we would love to hear from you!
+		 </p>
+	 </div>
+	 
+  </div>
+  
+ <div id = "contact_section3">
+	 <form id = "contact_form" onsubmit="return formValidate()" method="post" action="contact.htm">
+		 
+		<div class="row">
+		
+				<div class="col-md-6 form-group">
+					<label for="fname">First name:</label>
+					<input id = "fname" class="form-control" type="text" name = "fname" value="" />
+				</div>
+				
+				<div class="col-md-6 form-group">
+					<label for="lname">Last name:</label>
+					<input id = "lname" class="form-control" type="text" name = "lname"/>
+				</div>
+				
+				<div class="col-md-6 form-group">
+					<label for="phone">Phone:</label>
+					<input id = "phone" class="form-control" type = "text" name="phone"/>
+				</div>
+				
+				<div class="col-md-6 form-group">
+					<label for="email">E-mail address:</label>
+					<input id = "email" class="form-control" type = "text" name="email"/>
+				</div>
+				
+				<div class="col-md-10 form-group">
+					<label for="textarea">Your message:</label>
+					<textarea id = "textarea" class="form-control" rows = "10" cols = "20"></textarea>
+				</div>
+				
+				<div class="col-md-6 form-group">
+					<input class="form-control" type ="submit" value= "send"/>
+				</div>	
+				
+				<div class="col-md-6 form-group">
+					<input class="form-control" type = "reset" value = "cancel"/>
+				</div>				
+						
+		</div>
+
+	 </form>
+
+  </div>
+  
+  
+	<div class = "footer">
+	<div class = "flexbox_foot_container">
+		
+		<div class = "flexbox_foot_item1">
+			<table frame = "rhs">
+				<tr> <th> <a href = "booking.php">Booking</a> </th> </tr>
+				<tr> <th> <a href = "service.htm">Service</a></a> </th> </tr>
+				<tr> <th> <a href = "contact.htm">Contact Us</a> </th> </tr>
+				<tr> <th> <a href = "about.htm">About Us</a> </th> </tr>
+				<tr> <th> <a href = "homepage.php">Home</a> </th> </tr>
+			</table>
+		</div>
+		
+		<div class = "flexbox_foot_item2">
+			<table>
+				<tr>
+					<th>Travel Booker &copy 2016</th>
+					<th>Terms and conditions</th>
+				</tr>
+			</table>
+		</div>
+	</div>
+
+	</div>
+  
+</body>
+
+
+</html>
